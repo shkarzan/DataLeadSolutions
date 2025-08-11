@@ -1,12 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Zap, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 
 const Footer = () => {
   const footerLinks = {
-    Product: ['Features', 'Pricing', 'Integrations', 'API'],
-    Company: ['About Us', 'Careers', 'Blog', 'Press'],
-    Support: ['Help Center', 'Contact', 'Status', 'Documentation'],
-    Legal: ['Privacy Policy', 'Terms of Service', 'Cookie Policy', 'GDPR']
+    Product: [
+      { label: 'Features', href: '/features' },
+      { label: 'Pricing', href: '/pricing' },
+      { label: 'Integrations', href: '/integrations' },
+      { label: 'API', href: '/api' }
+    ],
+    Company: [
+      { label: 'About Us', href: '/about' },
+      { label: 'Careers', href: '/careers' },
+      { label: 'Blog', href: '/blog' },
+      { label: 'Press', href: '/press' }
+    ],
+    Support: [
+      { label: 'Help Center', href: '/help' },
+      { label: 'Contact', href: '/contact' },
+      { label: 'Status', href: '/status' },
+      { label: 'Documentation', href: '/documentation' }
+    ],
+    Legal: [
+      { label: 'Privacy Policy', href: '/privacy' },
+      { label: 'Terms of Service', href: '/terms' },
+      { label: 'Cookie Policy', href: '/cookies' },
+      { label: 'GDPR', href: '/gdpr' }
+    ]
   };
 
   return (
@@ -49,13 +70,13 @@ const Footer = () => {
                 <h3 className="font-semibold mb-4">{category}</h3>
                 <ul className="space-y-3">
                   {links.map((link) => (
-                    <li key={link}>
-                      <a
-                        href="#"
+                    <li key={link.label}>
+                      <Link
+                        to={link.href}
                         className="text-gray-400 hover:text-white transition-colors"
                       >
-                        {link}
-                      </a>
+                        {link.label}
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -71,9 +92,9 @@ const Footer = () => {
               © 2025 QLeadConnect. All rights reserved.
             </p>
             <div className="flex space-x-6 text-gray-400 text-sm">
-              <a href="#" className="hover:text-white transition-colors">Privacy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms</a>
-              <a href="#" className="hover:text-white transition-colors">Cookies</a>
+              <Link to="/privacy" className="hover:text-white transition-colors">Privacy</Link>
+              <Link to="/terms" className="hover:text-white transition-colors">Terms</Link>
+              <Link to="/cookies" className="hover:text-white transition-colors">Cookies</Link>
             </div>
           </div>
         </div>
